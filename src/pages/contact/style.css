@@ -1,0 +1,50 @@
+aside.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  width: 70%;
+  grid-gap: 100px;
+}
+.contact img {
+  object-fit: contain;
+  width: 520px;
+  height: 550px;
+  transform: scale(1.1);
+}
+
+.contact label {
+  text-align: center;
+  font-size: 32px;
+  color: white;
+  width: 70%;
+}
+
+.social {
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 16px;
+}
+.social a {
+  cursor: pointer;
+}
+
+.highlight-link {
+  color: #ff9900;
+  font-weight: bold;
+}
+
+.highlight-link:hover {
+  color: rgb(39, 141, 39);
+}
+
+.instagram-link {
+  color: #8a3ab9;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.instagram-link:hover {
+  color: #6c278d;
+}

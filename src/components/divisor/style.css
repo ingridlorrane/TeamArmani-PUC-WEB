@@ -1,0 +1,11 @@
+divisor.css h1.divisor {
+  background-image: url("../../../src/assets/images/bg_navbar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 8px;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: calc(0% + 178px);
+}

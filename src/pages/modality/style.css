@@ -1,0 +1,75 @@
+.modality {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-gap: 5rem;
+}
+.modality p {
+  text-align: center;
+  color: #222727;
+  font-weight: bold;
+  font-size: 32px;
+  margin: 12px;
+}
+.modality.group > div:hover p {
+  border-bottom: 3px solid #222727;
+}
+
+.modality img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  transition: all 0.2s ease-out;
+}
+
+.modality.group > div:hover img {
+  filter: grayscale(90%);
+  width: 304px;
+  height: 304px;
+}
+
+.modality.kick,
+.modality.jiu {
+  display: block;
+  color: white;
+  max-width: 80%;
+}
+
+.modality.kick h1,
+.modality.jiu h1 {
+  border-bottom: 3px solid #a4a6a6;
+  text-align: center;
+  width: fit-content;
+  font-size: 42px;
+  margin: 0 auto;
+}
+.modality.kick > div,
+.modality.jiu > div {
+  display: flex;
+  flex-direction: column;
+}
+.modality.kick p,
+.modality.jiu p {
+  color: white;
+  font-size: 24px;
+  font-style: italic;
+}
+.modality.kick ul,
+.modality.jiu ul {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 16px 8px;
+}
+.modality.kick button,
+.modality.jiu button {
+  background-color: #a4a6a6;
+  color: #222727;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 124px;
+  margin: 0 auto;
+}

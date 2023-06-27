@@ -1,0 +1,29 @@
+.schedule div ul {
+  display: inline-grid;
+  list-style-type: none;
+  padding: 0;
+}
+
+.schedule li {
+  border: 1px solid #E2EFDA;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  padding: 8px;
+  min-height: 24px;
+}
+
+.schedule li.hour,.schedule li.dia {
+  background-color: #E2EFDA;
+  color: black;
+}
+
+.schedule li:hover:not(.dia, .hour) {
+  background-color: #E2EFDA;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  transition: all 0.25s linear;
+}

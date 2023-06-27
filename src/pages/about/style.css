@@ -1,0 +1,13 @@
+.about {
+display: flex;
+max-width: 80%;
+}
+
+.about p {
+  color: white;
+  font-size: 19px;
+}
+
+.about img {
+  width: 50%;
+}

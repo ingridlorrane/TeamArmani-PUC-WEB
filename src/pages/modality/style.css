@@ -60,16 +60,3 @@
   grid-template-columns: repeat(3, auto);
   grid-gap: 16px 8px;
 }
-.modality.kick button,
-.modality.jiu button {
-  background-color: #a4a6a6;
-  color: #222727;
-  border: none;
-  padding: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 124px;
-  margin: 0 auto;
-}

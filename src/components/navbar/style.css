@@ -1,9 +1,22 @@
-.navbar {
-  padding: 2.4rem 0;
-  justify-content: center;
-  display: flex;
-  padding-bottom: 100px;
+@media screen and (max-width: 768px) {
+  div.navbar ul {
+    display: block;
+  }
 }
+@media (max-width: 375px) {
+  div.navbar ul {
+    display: block;
+  }
+
+}
+
+.navbar {
+  justify-content: center;
+  padding-bottom: 100px;
+  padding: 2.4rem 0;
+  display: flex;
+}
+
 
 .navbar ul {
   list-style-type: none;

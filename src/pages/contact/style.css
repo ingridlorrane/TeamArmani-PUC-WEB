@@ -2,9 +2,11 @@ aside.contact {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: end;
-  width: 70%;
+  align-items: center;
+  width: 60%;
   grid-gap: 100px;
+  padding-top: 150px;
+  padding-left: 350px;
 }
 .contact img {
   object-fit: contain;
@@ -21,7 +23,7 @@ aside.contact {
 }
 
 .social {
-  display: flex;  
+  display: flex;
   flex-direction: column;
   align-items: center;
   grid-gap: 16px;

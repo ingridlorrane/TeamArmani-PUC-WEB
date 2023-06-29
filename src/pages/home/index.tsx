@@ -1,4 +1,3 @@
-import { BgTeacher } from '../../style';
 import './style.css';
 
 const Home = () => {
@@ -8,7 +7,6 @@ const Home = () => {
         <label>CENTRO DE TREINAMENTO</label>
         <h2>TEAM ARMANNI</h2>
       </div>
-      <BgTeacher />
     </aside>
   );
 };

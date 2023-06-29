@@ -5,13 +5,13 @@
   letter-spacing: 1px;
 }
 
-body {
+/* body {
   background-image: url("./assets/images/bg_novo_fundo.png");
   background-position: center;
   position: relative;
   height: 100vh;
   margin: 0;
-}
+} */
 
 a {
   font-size: 1.5rem;

@@ -1,6 +1,5 @@
 import { FaInstagram, FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
 import './style.css';
-import { BgTeacher } from '../../style';
 
 const Contact = () => {
   return (
@@ -55,7 +54,6 @@ const Contact = () => {
         Localização: Av. Professor José Maurício, 381 - Lindéia, Belo Horizonte
         - MG, 32400-000
       </label>
-      <BgTeacher />
     </aside>
   );
 };

@@ -21,11 +21,13 @@ function Schedule() {
   };
 
   useEffect(() => {
-    getDados();
+    if (dados.length < 1) {
+      getDados();
+    }
     // getAulas();
 
     console.log('filtrado', dados);
-  }, [setDados]);
+  }, [dados]);
 
   return (
     <aside className="schedule">

@@ -1,25 +1,23 @@
 aside.home {
-  margin-left: 20%;
-}
-
-img.bgTeacher {
-  width: 500px;
-  height: 600px;
-  transform: scale(1.2);
+  display: flex;
+  place-items: center;
+  padding-top: 100px;
+  padding-left: 300px;
 }
 
 .home label {
   color: rgb(255, 255, 255);
-  font-size: 40px;
-  width: 50%;
   text-align: left;
+  font-size: 40px;
 }
-.home label, .home h2 {
-  text-shadow: 1vw 1vw 3vw #000, 0 0 11vw #24ff00, 0 0 4vw #24ff00, 0 0 3vw #24ff00;
+.home label,
+.home h2 {
+  text-shadow: 1vw 1vw 3vw #000, 0 0 11vw #24ff00, 0 0 4vw #24ff00,
+    0 0 3vw #24ff00;
 }
 
 .home h2 {
   color: rgb(255, 255, 255);
   font-size: 82px;
-  width: 50%;
+  width: 400px;
 }

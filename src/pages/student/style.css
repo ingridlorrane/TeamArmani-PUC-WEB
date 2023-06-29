@@ -1,3 +1,7 @@
+.student {
+  min-width: 720px;
+}
+
 .student h1 {
   align-items: center;
   font-size: 42px;
@@ -7,7 +11,18 @@
 }
 
 .student form {
-  padding-bottom: 16px;
+  display: flex;
+  margin-bottom: 16px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.student h3 {
+  width: 100%;
+  color: #c9c7c7;
+  padding: 0;
+  margin: 0;
+  text-align: end;
 }
 
 .student form label {
@@ -17,9 +32,10 @@
 
 .student form input {
   margin: 0 12px;
-  background-color: #c9c7c7;
+  color: white;
   border: none;
   padding: 4px 12px;
+  height: 24px;
 }
 
 .student table {
@@ -46,14 +62,73 @@
   padding: 2px;
 }
 
-.student table button {
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
+.student .edit input {
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: capitalize;
+  opacity: 1;
+  color: white;
+}
+
+.student .edit input::placeholder {
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: capitalize;
+  opacity: 1;
+  color: white;
+}
+
+.edit, .delete {
+  background-color: #c9c7c7;
+  padding: 4px;
+}
+
+.delete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.delete > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit .group-buttons, .delete .group-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  align-items: center;
+  grid-gap: 52px;
+} 
+
+.edit > div {
+  justify-content: center;
+  padding: 12px 0;
+  display: flex;
+}
+
+.student .delete div label {
+  width: fit-content;
+  text-align: initial;
+  padding-right: 10px;
+  font-size: 24px;
+}
+
+.student .delete h3 {
+  font-size: 24px;
   color: #222727;
 }
 
-.student table button:hover {
-  transition: all 0.25s linear;
-  color: #0F3002;
+.student .edit label, .student .delete label {
+  width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222727;
+}
+
+.student .edit input {
+  margin: 0 12px;
+  background-color: #222727;
+  border: none;
+  padding: 4px 12px;
 }

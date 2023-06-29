@@ -4,6 +4,7 @@ import './style.css';
 
 import bg_modalidade_jiu from '../../assets/images/bg_modalidade_jiu.png';
 import bg_modalidade_kick from '../../assets/images/bg_modalidade_kick.png';
+import { Button } from '../../components/button';
 
 function Modality() {
   const [step, SetStep] = useState<number>(0);
@@ -77,7 +78,14 @@ function Modality() {
                 de autodefesa que podem ser úteis em situações de perigo.
               </li>
             </ul>
-            <button onClick={() => SetStep(0)}>voltar</button>
+            <Button
+              text="Voltar"
+              handle={() => SetStep(0)}
+              bg="white"
+              color="#222727"
+              size="100px"
+              font="18px"
+            />
           </div>
         </aside>
       )}
@@ -131,7 +139,14 @@ function Modality() {
                 eficientes durante os combates.
               </li>
             </ul>
-            <button onClick={() => SetStep(0)}>voltar</button>
+            <Button
+              text="Voltar"
+              handle={() => SetStep(0)}
+              bg="white"
+              color="#222727"
+              size="100px"
+              font="18px"
+            />
           </div>
         </aside>
       )}

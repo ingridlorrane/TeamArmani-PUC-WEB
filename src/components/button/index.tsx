@@ -1,4 +1,4 @@
-import { Buttons } from "./style";
+import { Buttons } from './style';
 
 export interface IButton {
   text?: string | JSX.Element;

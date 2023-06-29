@@ -17,6 +17,7 @@ import {
   FaUsersGear,
   FaCircleCheck,
   FaUserPlus,
+  FaCircleExclamation,
 } from 'react-icons/fa6';
 
 import './style.css';
@@ -48,7 +49,7 @@ function Student() {
   const [step, SetStep] = useState<string>('manager');
 
   // Estado dos tipos de modals
-  // const [openModalAlert, SetOpenModalAlert] = useState<boolean>(false);
+  const [openModalAlert, SetOpenModalAlert] = useState<boolean>(false);
   const [openAddSuccess, SetOpenAddSuccess] = useState<boolean>(false);
   const [openEditSuccess, SetOpenEditSuccess] = useState<boolean>(false);
   const [openInativeSuccess, SetOpenInativeSuccess] = useState<boolean>(false);
@@ -59,6 +60,10 @@ function Student() {
   const handleEditStudent = (id: string) => {
     const student = dados.filter((a: any) => a.id === id);
     SetStudentSelected(student);
+    console.log(student);
+    SetNewNome(student[0].nome);
+    SetNewModalidade(student[0].modalidade);
+    SetNewFaixa(student[0].grau_faixa);
     SetStep('edit_student');
   };
 
@@ -74,17 +79,29 @@ function Student() {
   };
 
   const handleAddStudent = () => {
-    api()
-      .post(`${import.meta.env.VITE_API_ROTA_URL}/students`, {
-        nome: newNome !== '' ? newNome : studentSelected[0].nome,
-        modalidade:
-          newModalidade !== '' ? newModalidade : studentSelected[0].modalidade,
-        grau_faixa: newFaixa !== '' ? newFaixa : studentSelected[0].grau_faixa,
-      })
-      .then((res) => SetDados(res.data))
-      .catch((err) => console.log(err));
+    const lastUser = dados[dados.length - 1];
+    lastUser.id = lastUser.id + 1;
 
-    SetOpenAddSuccess(!openAddSuccess);
+    console.log(lastUser.id + 1);
+    console.log(newNome.length);
+
+    if (newNome.length < 1 || newModalidade.length < 1 || newFaixa.length < 1) {
+      SetOpenModalAlert(!openModalAlert);
+    } else {
+      api()
+        .post(`${import.meta.env.VITE_API_ROTA_URL}/students`, {
+          dia_semana: lastUser.dia_semana,
+          grau_faixa: newFaixa,
+          horario: lastUser.horario,
+          modalidade: newModalidade,
+          nome: newNome,
+          situacao: lastUser.situacao,
+        })
+        .then((res) => SetDados(res.data))
+        .catch((err) => console.log(err));
+
+      SetOpenAddSuccess(!openAddSuccess);
+    }
   };
 
   const handleUploadStudent = () => {
@@ -138,7 +155,6 @@ function Student() {
     if (dados.length < 1) {
       getDados();
     }
-    console.log('dados ', studentSelected);
   }, [dados, step, studentSelected, newNome, newModalidade, newFaixa]);
 
   return (
@@ -234,7 +250,7 @@ function Student() {
                   type="text"
                   id="nome"
                   name="nome"
-                  placeholder={studentSelected[0].nome}
+                  value={newNome}
                   onChange={(e) => SetNewNome(e.target.value)}
                 />
               </div>
@@ -244,7 +260,7 @@ function Student() {
                   type="text"
                   id="modalidade"
                   name="modalidade"
-                  placeholder={studentSelected[0].modalidade}
+                  value={newModalidade}
                   onChange={(e) => SetNewModalidade(e.target.value)}
                 />
               </div>
@@ -254,7 +270,7 @@ function Student() {
                   type="text"
                   id="grau_faixa"
                   name="grau_faixa"
-                  placeholder={studentSelected[0].grau_faixa}
+                  value={newFaixa}
                   onChange={(e) => SetNewFaixa(e.target.value)}
                 />
               </div>
@@ -487,6 +503,21 @@ function Student() {
                 handle={() => (
                   navigateTo('/student'), window.location.reload()
                 )}
+                bg="#222727"
+                color="white"
+                size="fit-content"
+                font="18px"
+              />
+            }
+          />
+          <Modal
+            showModal={openModalAlert}
+            text="Todos os campos precisam estar preenchidos!"
+            symbol={<FaCircleExclamation size={42} color="#222727" />}
+            button={
+              <Button
+                text="Voltar"
+                handle={() => SetOpenModalAlert(!openModalAlert)}
                 bg="#222727"
                 color="white"
                 size="fit-content"

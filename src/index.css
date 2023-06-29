@@ -5,6 +5,7 @@
   letter-spacing: 1px;
 }
 
+
 /* body {
   background-image: url("./assets/images/bg_novo_fundo.png");
   background-position: center;
@@ -17,4 +18,8 @@ a {
   font-size: 1.5rem;
   color: rgb(241, 235, 235);
   text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
 }

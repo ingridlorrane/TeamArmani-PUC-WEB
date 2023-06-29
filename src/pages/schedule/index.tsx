@@ -66,12 +66,14 @@ function Schedule() {
               <li key={id}>{nome}</li>
             ))}
         </ul>
-        <ul>
-          <li className="dia">Quinta</li>
+        <ul className="schedule-mobile">
+          <li>&nbsp;</li>
           {dados
-            .filter((a: any) => a.dia_semana === 'Quinta')
-            .map(({ id, nome }: IModality) => (
-              <li key={id}>{nome}</li>
+            .filter((a: any) => a.dia_semana === 'Segunda')
+            .map(({ id, horario }: IModality) => (
+              <li className="hour" key={id}>
+                {horario.replace(':00:00', 'H')}
+              </li>
             ))}
         </ul>
         <ul>

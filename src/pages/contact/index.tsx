@@ -31,7 +31,7 @@ const Contact = () => {
               background: 'blue',
             }}
           />
-          <span>(31)98353-6211</span>
+          <span>(31) 98353-6211</span>
         </a>
         <a
           href="https://wa.me/5522989652365"
@@ -50,10 +50,12 @@ const Contact = () => {
           <span>Enviar Mensagem</span>
         </a>
       </div>
-      <label>
-        Localização: Av. Professor José Maurício, 381 - Lindéia, Belo Horizonte
-        - MG, 32400-000
-      </label>
+      <div className="label">
+        <label>
+          Av. Professor José Maurício, 381 - Lindéia, Belo Horizonte - MG,
+          32400-000
+        </label>
+      </div>
     </aside>
   );
 };

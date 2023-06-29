@@ -1,9 +1,9 @@
-import { SetStateAction, useEffect, useState } from "react";
-import bg_login from "../../assets/images/bg_login.png";
-import { useNavigate } from "react-router-dom";
-import api from "../../service/api";
-import "./style.css";
-import { Button } from "../../components/button";
+import { SetStateAction, useEffect, useState } from 'react';
+import bg_login from '../../assets/images/bg_login.png';
+import { useNavigate } from 'react-router-dom';
+import api from '../../service/api';
+import './style.css';
+import { Button } from '../../components/button';
 
 function Login() {
   const [dados, setDados] = useState<SetStateAction<any>>([]);
@@ -24,36 +24,37 @@ function Login() {
     getDados();
 
     const login = dados.find(
-      (a: any) => a.email === email && String(a.senha) === password
+      (a: any) => a.email === email && a.senha == password
     );
 
     if (!login) {
-      console.log("email ou senha invalidos");
+      console.log('email ou senha invalidos');
       setStep(1);
     } else {
-      console.log("disparou", login.email);
+      console.log('disparou', login.email);
 
-      sessionStorage.setItem("login", "true");
-      sessionStorage.setItem("email", login.email);
-      sessionStorage.setItem("senha", login.senha);
+      sessionStorage.setItem('login', 'true');
+      sessionStorage.setItem('email', login.email);
+      sessionStorage.setItem('senha', login.senha);
 
-      navigateTo("/student");
+      navigateTo('/student');
       window.location.reload();
     }
   };
 
   const checkLogin = () => {
-    const login = sessionStorage.getItem("login");
-    login === "true" ? navigateTo("/student") : "";
+    const login = sessionStorage.getItem('login');
+    login === 'true' ? navigateTo('/student') : '';
   };
 
   useEffect(() => {
     if (dados.length < 1) {
       getDados();
+
       checkLogin();
     }
 
-    console.log("dados", dados);
+    console.log('dados', dados);
   }, [dados, setStep]);
 
   return (

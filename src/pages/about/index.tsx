@@ -1,4 +1,4 @@
-import bg_quemsomos from '../../assets/images/bg_quemsomos.png';
+import bg_quemsomos from '../../assets/images/bg_quemsomos_v2.png';
 import './style.css';
 
 function About() {

@@ -4,6 +4,7 @@
   align-items: center;
   grid-gap: 5rem;
 }
+
 .modality p {
   text-align: center;
   color: #222727;
@@ -28,6 +29,14 @@
   height: 304px;
 }
 
+aside.modality.kick, aside.modality.jiu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 0;
+}
+
 .modality.kick,
 .modality.jiu {
   display: block;
@@ -50,13 +59,25 @@
 }
 .modality.kick p,
 .modality.jiu p {
-  color: white;
-  font-size: 24px;
+  color: #fefefefe;
+  font-size: 20px;
   font-style: italic;
+  text-align: center;
 }
-.modality.kick ul,
-.modality.jiu ul {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-gap: 16px 8px;
+
+@media (max-width: 425px) {
+  .modality {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 5rem;
+  }
+  .modality.kick ul,
+  .modality.jiu ul {
+    grid-template-columns: repeat(1, auto);
+    grid-gap: 32px;
+    padding-bottom: 24px;
+  }
+  
 }

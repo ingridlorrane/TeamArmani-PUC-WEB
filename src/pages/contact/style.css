@@ -1,35 +1,38 @@
 aside.contact {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 60%;
-  grid-gap: 100px;
-  padding-top: 150px;
-  padding-left: 350px;
-}
-.contact img {
-  object-fit: contain;
-  width: 520px;
-  height: 550px;
-  transform: scale(1.1);
+  grid-gap: 24px;
 }
 
-.contact label {
+.contact .label {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.contact .label label {
+ padding: 0 24px 0 0;
+  width: 60%;
   text-align: center;
   font-size: 32px;
   color: white;
-  width: 70%;
 }
 
 .social {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  grid-gap: 16px;
+  display: block;
 }
 .social a {
+  display: grid;
+  grid-gap: 24px;
   cursor: pointer;
+  justify-content: start;
+  grid-template-columns: repeat(2, auto);
+  padding-bottom: 24px;
+}
+
+.social a span {
+ text-align: start;
 }
 
 .highlight-link {
@@ -49,4 +52,10 @@ aside.contact {
 
 .instagram-link:hover {
   color: #6c278d;
+}
+
+@media (max-width: 425px) {
+  .contact .label label {
+    width: 100%;
+  }
 }

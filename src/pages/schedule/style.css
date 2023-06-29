@@ -1,3 +1,10 @@
+.schedule {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .schedule div ul {
   display: inline-grid;
   list-style-type: none;
@@ -24,6 +31,33 @@
   background-color: #E2EFDA;
   font-weight: bold;
   color: black;
-  cursor: pointer;
   transition: all 0.25s linear;
+}
+
+.schedule .schedule-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .schedule div {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+  }
+  .schedule .schedule-mobile {
+  display: unset;
+  }
+}
+  
+@media (max-width: 425px) {
+  .schedule li {
+    font-size: 16px;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 375px) {
+  .schedule li {
+    font-size: 14px;
+    padding: 4px;
+  }
 }

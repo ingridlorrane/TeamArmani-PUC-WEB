@@ -1,23 +1,44 @@
 aside.home {
   display: flex;
-  place-items: center;
-  padding-top: 100px;
-  padding-left: 300px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  height: fit-content;
 }
 
-.home label {
+.home label.center {
   color: rgb(255, 255, 255);
-  text-align: left;
   font-size: 40px;
-}
-.home label,
-.home h2 {
-  text-shadow: 1vw 1vw 3vw #000, 0 0 11vw #24ff00, 0 0 4vw #24ff00,
-    0 0 3vw #24ff00;
+  text-align: end;
+  width: 100%;
 }
 
-.home h2 {
+.home > div {
+  display: flex;
+  justify-content: flex-end;
+}
+.home > div label  {
+  width: 70%;
   color: rgb(255, 255, 255);
   font-size: 82px;
-  width: 400px;
+}
+
+.home label, .home h2 {
+  text-shadow: 1vw 1vw 3vw #000, 0 0 11vw #24ff00, 0 0 4vw #24ff00, 0 0 3vw #24ff00;
+}
+
+@media (max-width: 425px) {
+  aside.home label.center {
+    text-align: center;
+    margin-bottom: 24px; 
+  }
+  
+  aside.home > div  {
+  justify-content: center;  
+  }
+  aside.home > div label {
+    text-align: center;
+    width: 100%; 
+  }
 }

@@ -3,11 +3,11 @@ import {
   SetStateAction,
   useEffect,
   useState,
-} from 'react';
-import api from '../../service/api';
+} from "react";
+import api from "../../service/api";
 
-import { Button } from '../../components/button';
-import { Modal } from '../../components/modal';
+import { Button } from "../../components/button";
+import { Modal } from "../../components/modal";
 import {
   FaPen,
   FaLock,
@@ -18,10 +18,10 @@ import {
   FaCircleCheck,
   FaUserPlus,
   FaCircleExclamation,
-} from 'react-icons/fa6';
+} from "react-icons/fa6";
 
-import './style.css';
-import { useNavigate } from 'react-router-dom';
+import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 interface IStudent extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
@@ -41,12 +41,12 @@ function Student() {
     []
   );
   // Estado de edição do aluno
-  const [newNome, SetNewNome] = useState<string>('');
-  const [newModalidade, SetNewModalidade] = useState<string>('');
-  const [newFaixa, SetNewFaixa] = useState<string>('');
+  const [newNome, SetNewNome] = useState<string>("");
+  const [newModalidade, SetNewModalidade] = useState<string>("");
+  const [newFaixa, SetNewFaixa] = useState<string>("");
 
   // Estado de Etapa da página
-  const [step, SetStep] = useState<string>('manager');
+  const [step, SetStep] = useState<string>("manager");
 
   // Estado dos tipos de modals
   const [openModalAlert, SetOpenModalAlert] = useState<boolean>(false);
@@ -64,7 +64,7 @@ function Student() {
     SetNewNome(student[0].nome);
     SetNewModalidade(student[0].modalidade);
     SetNewFaixa(student[0].grau_faixa);
-    SetStep('edit_student');
+    SetStep("edit_student");
   };
 
   const handleCheckStatusStudent = (id: string) => {
@@ -73,9 +73,9 @@ function Student() {
 
     console.log(student[0].situacao);
 
-    student[0].situacao === 'irregular'
-      ? SetStep('active')
-      : SetStep('inative');
+    student[0].situacao === "irregular"
+      ? SetStep("active")
+      : SetStep("inative");
   };
 
   const handleAddStudent = () => {
@@ -90,12 +90,12 @@ function Student() {
     } else {
       api()
         .post(`${import.meta.env.VITE_API_ROTA_URL}/students`, {
-          dia_semana: lastUser.dia_semana,
+          dia_semana: "sabado",
           grau_faixa: newFaixa,
-          horario: lastUser.horario,
+          horario: "09:00:00",
           modalidade: newModalidade,
           nome: newNome,
-          situacao: lastUser.situacao,
+          situacao: "regular",
         })
         .then((res) => SetDados(res.data))
         .catch((err) => console.log(err));
@@ -109,10 +109,10 @@ function Student() {
     api()
       .put(`${import.meta.env.VITE_API_ROTA_URL}/students/${idEdit}`, {
         id: idEdit,
-        nome: newNome !== '' ? newNome : studentSelected[0].nome,
+        nome: newNome !== "" ? newNome : studentSelected[0].nome,
         modalidade:
-          newModalidade !== '' ? newModalidade : studentSelected[0].modalidade,
-        grau_faixa: newFaixa !== '' ? newFaixa : studentSelected[0].grau_faixa,
+          newModalidade !== "" ? newModalidade : studentSelected[0].modalidade,
+        grau_faixa: newFaixa !== "" ? newFaixa : studentSelected[0].grau_faixa,
       })
       .then((res) => SetDados(res.data))
       .catch((err) => console.log(err));
@@ -124,7 +124,7 @@ function Student() {
     api()
       .put(`${import.meta.env.VITE_API_ROTA_URL}/students/${id}`, {
         id: id,
-        situacao: 'irregular',
+        situacao: "irregular",
       })
       .then((res) => SetDados(res.data))
       .catch((err) => console.log(err));
@@ -136,7 +136,7 @@ function Student() {
     api()
       .put(`${import.meta.env.VITE_API_ROTA_URL}/students/${id}`, {
         id: id,
-        situacao: 'regular',
+        situacao: "regular",
       })
       .then((res) => SetDados(res.data))
       .catch((err) => console.log(err));
@@ -159,7 +159,7 @@ function Student() {
 
   return (
     <aside className="student">
-      {step === 'manager' && (
+      {step === "manager" && (
         <>
           <h1>
             Gerenciar Alunos
@@ -169,7 +169,7 @@ function Student() {
             <Button
               text="Adicionar Aluno"
               icon={<FaUserPlus size={32} />}
-              handle={() => SetStep('add')}
+              handle={() => SetStep("add")}
               bg="#222727"
               color="#c9c7c7"
               size="fit-content"
@@ -215,7 +215,7 @@ function Student() {
                       />
                       <Button
                         text={
-                          situacao === 'regular' ? (
+                          situacao === "regular" ? (
                             <FaLockOpen size={20} />
                           ) : (
                             <FaLock size={20} />
@@ -236,7 +236,7 @@ function Student() {
           </table>
         </>
       )}
-      {step === 'edit_student' && (
+      {step === "edit_student" && (
         <>
           <div>
             <h1>
@@ -285,7 +285,7 @@ function Student() {
                 />
                 <Button
                   text="Voltar"
-                  handle={() => SetStep('manager')}
+                  handle={() => SetStep("manager")}
                   bg="white"
                   color="#222727"
                   size="fit-content"
@@ -302,7 +302,7 @@ function Student() {
               <Button
                 text="Voltar"
                 handle={() => (
-                  navigateTo('/student'), window.location.reload()
+                  navigateTo("/student"), window.location.reload()
                 )}
                 bg="#222727"
                 color="white"
@@ -313,7 +313,7 @@ function Student() {
           />
         </>
       )}
-      {step === 'inative' && (
+      {step === "inative" && (
         <>
           <div>
             <h1>
@@ -344,7 +344,7 @@ function Student() {
                 />
                 <Button
                   text="Voltar"
-                  handle={() => SetStep('manager')}
+                  handle={() => SetStep("manager")}
                   bg="white"
                   color="#222727"
                   size="fit-content"
@@ -361,7 +361,7 @@ function Student() {
               <Button
                 text="Voltar"
                 handle={() => (
-                  navigateTo('/student'), window.location.reload()
+                  navigateTo("/student"), window.location.reload()
                 )}
                 bg="#222727"
                 color="white"
@@ -372,7 +372,7 @@ function Student() {
           />
         </>
       )}
-      {step === 'active' && (
+      {step === "active" && (
         <>
           <div>
             <h1>
@@ -407,7 +407,7 @@ function Student() {
                 />
                 <Button
                   text="Voltar"
-                  handle={() => SetStep('manager')}
+                  handle={() => SetStep("manager")}
                   bg="white"
                   color="#222727"
                   size="fit-content"
@@ -424,7 +424,7 @@ function Student() {
               <Button
                 text="Voltar"
                 handle={() => (
-                  navigateTo('/student'), window.location.reload()
+                  navigateTo("/student"), window.location.reload()
                 )}
                 bg="#222727"
                 color="white"
@@ -435,7 +435,7 @@ function Student() {
           />
         </>
       )}
-      {step === 'add' && (
+      {step === "add" && (
         <>
           <div>
             <h1>
@@ -484,7 +484,7 @@ function Student() {
                 />
                 <Button
                   text="Voltar"
-                  handle={() => SetStep('manager')}
+                  handle={() => SetStep("manager")}
                   bg="white"
                   color="#222727"
                   size="fit-content"
@@ -501,7 +501,7 @@ function Student() {
               <Button
                 text="Voltar"
                 handle={() => (
-                  navigateTo('/student'), window.location.reload()
+                  navigateTo("/student"), window.location.reload()
                 )}
                 bg="#222727"
                 color="white"
